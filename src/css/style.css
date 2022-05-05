@@ -10,6 +10,8 @@ body {
 .game-area {
     background-color: black;
     background-image: url(../images/space.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 600px;
     width: 600px;
 }
