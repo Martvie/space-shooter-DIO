@@ -29,3 +29,36 @@ body {
     width: 40px;
     height: 20px;
 }
+.game-instructions {
+    position: relative;
+    color: white;
+    left: 7rem;
+    top: 0px;
+}
+
+.start-button {
+    position: relative;
+    color: white;
+    top: 9rem;
+    left: 15rem;
+    cursor: pointer;
+}
+
+
+.alien {
+    height: 60px;
+    width: 70px;
+    position: relative;
+}
+
+.alien-transition {
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.dead-alien {
+    height: 60px;
+    width: 70px;
+    position: relative;
+    opacity: 0;
+}
