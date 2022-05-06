@@ -1,5 +1,5 @@
 body {
-    display:  flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -29,6 +29,7 @@ body {
     width: 40px;
     height: 20px;
 }
+
 .game-instructions {
     position: relative;
     color: white;
