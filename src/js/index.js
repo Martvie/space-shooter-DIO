@@ -3,14 +3,14 @@ const playArea = document.querySelector('.game-area')
 
 function moveShip(event) {
     if(event.key === 'ArrowUp'|| event.key === 'w') {
-        // event.preventDefault();
-        moveUp();
+        event.preventDefault()
+        moveUp()
     } else if(event.key === 'ArrowDown' || event.key === 's') {
-        // event.preventDefault();
-        moveDown();
+        event.preventDefault()
+        moveDown()
     } else if(event.key === " " || event.key === 'd') {
-        // event.preventDefault();
-        fireLaser();
+        event.preventDefault()
+        shoot()
     }
 }
 
@@ -36,4 +36,43 @@ function moveDown() {
     }
 }
 
+function shoot(){
+    let laser = creatLaser()
+    playArea.appendChild(laser)
+    moveLaser(laser)
+}
+
+function creatLaser(){
+    let xPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'))
+    let yPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('top'))
+    let laser = document.createElement('img')
+
+    laser.src = 'src/images/laser.png'
+    laser.classList.add('laser')
+    laser.style.top = `${yPosition - 10}px`
+    laser.style.left = `${xPosition}}px`
+
+    return laser
+}
+
+function moveLaser(laser){
+    let laserInterval = setInterval(() => {
+        let xPosition = parseInt(laser.style.left);
+        let aliens = document.querySelectorAll('.alien');
+
+        aliens.forEach((alien) => { 
+            if(checkLaserCollision(laser, alien)) {
+                alien.src = 'img/explosion.png';
+                alien.classList.remove('alien');
+                alien.classList.add('dead-alien');
+            }
+        })
+
+        if(xPosition === 340) {
+            laser.remove();
+        } else {
+            laser.style.left = `${xPosition + 8}px`;
+        }
+    }, 10);
+}
 window.addEventListener("keydown", moveShip)
