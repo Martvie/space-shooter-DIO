@@ -43,16 +43,15 @@ function shoot(){
 }
 
 function creatLaser(){
-    let xPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'))
-    let yPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('top'))
-    let laser = document.createElement('img')
+    let xPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+    let yPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('top'));
+    let newLaser = document.createElement('img');
 
-    laser.src = 'src/images/laser.png'
-    laser.classList.add('laser')
-    laser.style.top = `${yPosition - 10}px`
-    laser.style.left = `${xPosition}}px`
-
-    return laser
+    newLaser.src = 'src/images/laser.png';
+    newLaser.classList.add('laser');
+    newLaser.style.left = `${xPosition}px`;
+    newLaser.style.top = `${yPosition - 10}px`;
+    return newLaser;
 }
 
 function moveLaser(laser){
